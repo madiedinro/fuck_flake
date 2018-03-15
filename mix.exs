@@ -4,7 +4,7 @@ defmodule FuckLake.MixProject do
   def project do
     [
       app: :fuck_lake,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps()
@@ -18,6 +18,8 @@ defmodule FuckLake.MixProject do
       mod: {FuckLake, []}
     ]
   end
+
+
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
