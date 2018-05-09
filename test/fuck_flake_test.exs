@@ -3,6 +3,6 @@ defmodule FuckFlakeTest do
   doctest FuckFlake
 
   test "greets the world" do
-    assert FucLake.hello() == :world
+    assert FuckFlake.hello() == :world
   end
 end

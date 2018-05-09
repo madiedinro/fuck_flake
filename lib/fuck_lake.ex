@@ -66,7 +66,7 @@ defmodule FuckFlake do
   end
 
   def config(name) do
-    Application.get_env :fuck_lake, name
+    Application.get_env :fuck_flake, name
   end
 
 end

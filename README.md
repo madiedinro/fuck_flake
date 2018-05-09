@@ -78,7 +78,7 @@ by adding `fuck_flake` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:fuck_lake, "~> 0.1.1"}
+    {:fuck_flake, "~> 0.1.1"}
   ]
 end
 ```
