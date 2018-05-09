@@ -8,11 +8,11 @@ In FuckFlake first bits are random that makes values dispersed on entire 64-bit 
 
 Containt methods for generate unsigned int64 values
 
-0..18446744073709551615
+> 0..18446744073709551615
 
 and helpers to convert to signed in case of use with Postgres or other soft that does't support unsigned values
 
--9223372036854775808..+9223372036854775807
+> -9223372036854775808..+9223372036854775807
 
 ### Generators
 
