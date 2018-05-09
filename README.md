@@ -4,6 +4,15 @@ Generates ids based on timestamp offset, node id, counter and random.
 Instead of SnowFlake and SimpleFlake agorithms which values   are sequential it means they can be easely predicted and can't be directly used for data distribution.
 In FuckFlake first bits are random that makes values dispersed on entire 64-bit interval
 
+Value structure:
+
+- 1..8: 8 bit random
+- 9..16: 8 bit node counter
+- 17..56: 40 bit microseconds since 2018-01-01
+- 57..64: 8 bit node id
+
+it allow take at least 256 collision guarantee values per node per microsecond. Can be increased using bits allocated for node id
+
 ## API
 
 Containt methods for generate unsigned int64 values
