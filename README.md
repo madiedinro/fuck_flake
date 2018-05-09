@@ -1,8 +1,8 @@
 # FuckFlake
 
 Generates ids based on timestamp offset, node id, counter and random.
-As opposite SnowFlake and SimpleFlake agorithms which values can be easely predicted. 
-In FuckFlake first bits are random that makes values distributed on entire 64-bit interval 
+Instead of SnowFlake and SimpleFlake agorithms which values   are sequential it means they can be easely predicted and can't be directly used for data distribution.
+In FuckFlake first bits are random that makes values dispersed on entire 64-bit interval
 
 ## API
 
