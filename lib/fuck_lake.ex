@@ -1,13 +1,13 @@
-defmodule FuckLake do
+defmodule FuckFlake do
 
   use Application
   require Logger
 
-  @server FuckLake.Generator.Server
+  @server FuckFlake.Generator.Server
 
   def start(_type, _args) do
 
-    Logger.info("Starting fucklake")
+    Logger.info("Starting fuckflake")
 
     children = [
       {@server, []}
@@ -15,7 +15,7 @@ defmodule FuckLake do
 
     opts = [
       strategy: :one_for_one,
-      name: FuckLake.Supervisor
+      name: FuckFlake.Supervisor
     ]
 
     Supervisor.start_link(children, opts)
@@ -23,11 +23,11 @@ defmodule FuckLake do
 
   # clients
   def fuck() do
-    FuckLake.Generator.Server.fuck()
+    FuckFlake.Generator.Server.fuck()
   end
 
   def fuck58() do
-    FuckLake.Generator.Server.fuck58()
+    FuckFlake.Generator.Server.fuck58()
   end
 
   # helpers
@@ -39,17 +39,30 @@ defmodule FuckLake do
     num + 9_223_372_036_854_775_808
   end
 
-  def uid_to_b58(uid) do
-    uid
+  def int_to_b58(int) do
+    int
     |> to_unsing()
     |> :base58.integer_to_base58
   end
 
-  # with sign -9223372036854775808..+9223372036854775807
-  def b58_to_uid(b58) do
+  def uint_to_b58(uint) do
+    uint
+    |> :base58.integer_to_base58
+  end
+
+  def uid_to_b58(uid) do int_to_b58(uid) end
+
+  def b58_to_int(b58) do
     to_charlist(b58)
     |> :base58.base58_to_integer()
     |> to_sing()
+  end
+
+  def b58_to_uid(b58) do b58_to_int(b58) end
+
+  def b58_to_uint(b58) do
+    to_charlist(b58)
+    |> :base58.base58_to_integer()
   end
 
   def config(name) do

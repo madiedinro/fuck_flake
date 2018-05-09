@@ -1,6 +1,6 @@
-defmodule FuckLakeTest do
+defmodule FuckFlakeTest do
   use ExUnit.Case
-  doctest FuckLake
+  doctest FuckFlake
 
   test "greets the world" do
     assert FucLake.hello() == :world

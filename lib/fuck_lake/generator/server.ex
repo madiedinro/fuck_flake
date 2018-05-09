@@ -1,4 +1,4 @@
-defmodule FuckLake.Generator.Server do
+defmodule FuckFlake.Generator.Server do
 
   require Logger
   use GenServer
@@ -11,7 +11,7 @@ defmodule FuckLake.Generator.Server do
 
   # Client side
   def fuck() do
-    GenServer.call(FuckLake.Generator.Server, :fuck)
+    GenServer.call(FuckFlake.Generator.Server, :fuck)
   end
 
   def fuck58() do

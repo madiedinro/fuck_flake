@@ -1,4 +1,4 @@
-defmodule FuckLake.MixProject do
+defmodule FuckFlake.MixProject do
   use Mix.Project
 
   def project do
@@ -15,7 +15,7 @@ defmodule FuckLake.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {FuckLake, []}
+      mod: {FuckFlake, []}
     ]
   end
 

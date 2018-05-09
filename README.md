@@ -1,32 +1,66 @@
-# FuckLake
+# FuckFlake
 
-**TODO: Add description**
+Generates ids based on timestamp offset, node id, counter and random.
+As opposite SnowFlake and SimpleFlake agorithms which values can be easely predicted. 
+In FuckFlake first bits are random that makes values distributed on entire 64-bit interval 
 
+## API
 
-## Examples 
+Containt methods for generate unsigned int64 values
 
-    iex(15)> FuckLake.fuck
-    16360734652784538881
+0..18446744073709551615
 
-    iex(13)> FuckLake.fuck |> FuckLake.uid_to_b58
-    'mAYmhY7GACg'
-    
-    iex(16)> FuckLake.fuck58
-    '8hnj7B4HKTe'
-    
-    iex(17)> FuckLake.fuck58 |> FuckLake.b58_to_uid
-    -3958943915941350911
-    
-to int 64 with sign (for usage in postgres, etc...)
+and helpers to convert to signed in case of use with Postgres or other soft that does't support unsigned values
 
-    iex(21)> FuckLake.fuck |> FuckLake.to_sing
-    1878847101064396289
-    
-    iex(22)> FuckLake.fuck |> FuckLake.to_sing
-    -6119264362168704511
+-9223372036854775808..+9223372036854775807
 
+### Generators
 
+#### fuck()
 
+> 2821789490373903361
+
+Gen UInt64 id
+
+#### fuck58()
+
+> 'mAYmhY7GACg'
+
+Gen UInt64 id Base58 encoded
+
+### Helpers
+
+#### to_sing(num)
+
+    iex(55)> FuckFlake.fuck |> FuckFlake.to_sing
+    -1859420847169712895
+
+#### to_unsing(num)
+
+    iex(56)> -1859420847169712895 |> FuckFlake.to_unsing
+    7363951189685062913
+
+#### int_to_b58(int)
+
+    iex(57)> -1859420847169712895 |> FuckFlake.int_to_b58
+    'J6RXjh7JYme'
+
+#### uint_to_b58(uint)
+
+    iex(59)> 7363951189685062913 |> FuckFlake.uint_to_b58
+    'J6RXjh7JYme'
+
+#### b58_to_int(b58)
+
+    iex(60)> 'J6RXjh7JYme' |> FuckFlake.b58_to_uint
+    7363951189685062913
+
+#### b58_to_uint(b58)
+
+    iex(61)> 'J6RXjh7JYme' |> FuckFlake.b58_to_int
+    -1859420847169712895
+
+ 
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
