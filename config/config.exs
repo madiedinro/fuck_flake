@@ -10,7 +10,7 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :uck_flake, key: :value
+config :fuck_flake, node_id: 1
 #
 # and access this configuration in your application as:
 #

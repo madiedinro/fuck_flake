@@ -5,7 +5,6 @@ defmodule FuckFlake.Generator.Server do
 
   @max_val 255
   @time_offset 1514764800000  #2018-01-01
-  @node_id 1
   @name __MODULE__
 
 
@@ -35,11 +34,15 @@ defmodule FuckFlake.Generator.Server do
     <<r0 :: 8>> = :crypto.strong_rand_bytes(1)
 
     # 0 .. 18446744073709551615
-    <<uid :: integer - size(64)>> = <<r0 :: 8, state :: 8, offset :: 40, @node_id :: 8>>
+    <<uid :: integer - size(64)>> = <<r0 :: 8, state :: 8, offset :: 40, config(:node_id) :: 8>>
 
     state = if state == @max_val, do: 0, else: state + 1
 
     {:reply, uid, state}
+  end
+
+  def config(name) do
+    Application.get_env :fuck_flake, name
   end
 
 end
